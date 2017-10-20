@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <fieldset>
+    <form (submit)="onSubmit()" #formData='ngForm'>
+      Note: <input name='note'
+      class='long'
+      type="text"
+      required
+      minlength="3"
+      [(ngModel)]="noteobject.note"
+      />
+      <input class='green' [disabled]='formData.invalid' type="submit" value="Add Note">
+    </form>
+  </fieldset>
+  <fieldset>
+  <div *ngFor = "let note of updatednotes">
+      <fieldset>
+    <p class='left'>Noted on: {{ note.createdAt | date:'medium' }}</p>
+    <p >{{note.note}}</p>
+  </fieldset>
+  </div>
+</fieldset>
+
+</body>
+</html>
